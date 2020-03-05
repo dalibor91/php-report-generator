@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+cd /opt/app1;
+
+composer update
+
+vendor/bin/php-cs-fixer $@

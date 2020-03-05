@@ -20,6 +20,8 @@ abstract class Generator {
    */
   protected $logger;
 
+  protected $data;
+
   public function __construct(array $config = []) {
     $this->setConfig(array_merge($this->defaultConfig, $config))
       ->init();
@@ -35,6 +37,7 @@ abstract class Generator {
    */
   public function setConfig(array $config) {
     $this->config = $config;
+
     return $this;
   }
 
@@ -44,6 +47,7 @@ abstract class Generator {
 
   public function setConfigField(string $name, $value) {
     $this->config[$name] = $value;
+
     return $this;
   }
 
@@ -66,11 +70,21 @@ abstract class Generator {
     return $this->logger;
   }
 
-  abstract public function generate($data);
+  final public function setData($data) {
+    $this->data = $data;
 
-  abstract public function saveTo($data, string $name);
+    return $this;
+  }
 
-  abstract function init();
+  final public function getData() {
+    return $this->data;
+  }
 
-  abstract function finish();
+  abstract public function generate();
+
+  abstract public function saveTo(string $name);
+
+  abstract public function init();
+
+  abstract public function finish();
 }

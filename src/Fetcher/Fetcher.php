@@ -27,7 +27,7 @@ abstract class Fetcher {
   protected $logger;
 
   public function __construct(string $source, array $config = []) {
-      $this->setSource($source)
+    $this->setSource($source)
         ->setConfig(array_merge($this->defaultConfig, $config))
         ->init();
   }
@@ -42,6 +42,7 @@ abstract class Fetcher {
    */
   public function setConfig(array $config) {
     $this->config = $config;
+
     return $this;
   }
 
@@ -51,6 +52,7 @@ abstract class Fetcher {
 
   public function setConfigField(string $name, $value) {
     $this->config[$name] = $value;
+
     return $this;
   }
 
@@ -60,6 +62,7 @@ abstract class Fetcher {
    */
   public function setSource(string $source) {
     $this->source = $source;
+
     return $this;
   }
 
@@ -82,11 +85,15 @@ abstract class Fetcher {
     return $this->logger;
   }
 
-  abstract function init();
+  protected function getSource(): string {
+    return $this->source;
+  }
 
-  abstract function fetch();
+  abstract public function init();
 
-  abstract function parse();
+  abstract public function fetch();
 
-  abstract function finish();
+  abstract public function parse();
+
+  abstract public function finish();
 }

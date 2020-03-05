@@ -1,3 +1,5 @@
 examples/test.pdf
+examples/test1.pdf
 .idea
 vendor
+.php_cs.cache

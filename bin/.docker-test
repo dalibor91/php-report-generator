@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+source bin/.docker-check
+
+docker run --rm $REPORTER_IMAGE composer test

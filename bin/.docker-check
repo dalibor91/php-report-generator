@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+if [ "`which docker`" = "" ];
+then
+    echo "Please install docker";
+    exit 1;
+fi
+
+REPORTER_IMAGE='report-generator-php'
+
+docker images | grep $REPORTER_IMAGE;
+
+if ! [ $? -eq 0 ];
+then
+    docker build -t $REPORTER_IMAGE .
+fi

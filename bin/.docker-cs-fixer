@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+source bin/.docker-check
+
+docker run --rm -v "`pwd`:/opt/app1" $REPORTER_IMAGE bash bin/.run-lint $@

@@ -6,7 +6,7 @@ class HttpCSV extends Http {
   public function parse() {
     $columns = [];
     $data = [];
-    foreach (explode($this->getRowDelimiter(), self::fetch()) as $row) {
+    foreach (explode($this->getRowDelimiter(), $this->fetch()) as $row) {
       $row = trim($row);
 
       if (empty($row)) {

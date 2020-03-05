@@ -1,8 +1,10 @@
 {
-    "name": "dalibor/report-generator",
+    "name": "dalibor91/report-generator",
     "description": "Generates report from some source",
     "type": "composer-plugin",
     "require": {
+        "php": "^7.2",
+        "ext-json": "*",
         "mpdf/mpdf": "^8.0",
         "mustache/mustache": "^2.13",
         "php-curl-class/php-curl-class": "^8.6",
@@ -10,7 +12,8 @@
     },
     "require-dev": {
         "phpunit/phpunit": "^9.0",
-        "mockery/mockery": "^1.3"
+        "mockery/mockery": "^1.3",
+        "friendsofphp/php-cs-fixer": "^2.16"
     },
     "authors": [
         {
@@ -22,5 +25,11 @@
         "psr-4": {
             "ReportGenerator\\": "src/"
         }
+    },
+    "scripts": {
+        "test": "bash bin/test.sh",
+        "docker-test": "bash bin/.docker-test",
+        "lint": "bash bin/.docker-cs-fixer",
+        "examples": "for example in $(ls examples); do echo \"Running ${example}\"; php \"examples/${example}\"; done"
     }
 }
