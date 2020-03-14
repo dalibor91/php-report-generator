@@ -1,5 +1,8 @@
 # Report generator
 
+[![Build Status](https://travis-ci.org/dalibor91/php-report-generator.svg?branch=master)](https://travis-ci.org/dalibor91/php-report-generator)
+
+
 Used to create reports in pdf 
 
 ### scripts 
